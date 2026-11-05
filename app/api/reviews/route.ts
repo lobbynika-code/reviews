@@ -12,7 +12,7 @@ const reviewSchema = z.object({
   customerName: z.string().trim().max(120).default(""),
   phone: z.string().trim().max(40).default(""),
   requestCallback: z.boolean().default(false),
-  website: z.string().max(0).optional().default(""),
+  website: z.string().max(500).optional().default(""),
 });
 
 function escapeHtml(value: string) {
