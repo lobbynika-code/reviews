@@ -12,6 +12,7 @@ export default function Home() {
 
   async function submitReview(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     setState("sending");
     setError("");
 
@@ -38,7 +39,7 @@ export default function Home() {
       setState("success");
       setRating(0);
       setRequestCallback(false);
-      event.currentTarget.reset();
+      formElement.reset();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
       setState("error");
